@@ -1,21 +1,22 @@
-num, b, c, count = int(input('Enter a number: ')), '  ', '   ', 0
-for i in range(0, num+1):
-    if i > 9:
-        b = b + str(i) + '   '
-        c = c + str(i) + '|'
-    else:
-        b = b + str(i) + '    '
-        c = c + str(i) + ' |'
-    for a in range(0, num+1):
-        d = str(a*i)
-        for letter in d:
-            count += 1
-        c = c + str(a*i) + ' '*(5-count)
-        count = 0
-    c = c + '\n   '
+def multiplication_creator():
+    x = int(input('please, enter a first number for multiplication table: '))
+    y = int(input('please, enter a second number for multiplication table: '))
+    multiplication(x, y)
 
-print((' ')*4 + b)
-print((' ')*6 + ('-'+ '    ')*num)
-print(c)
 
-# something interesting
+def multiplication(x, y):
+    for i in range(x + 1):
+        for j in range(y + 1):
+            if j == 0:
+                print(i, end='\t')
+                continue
+            if i == 0:
+                print(j, end='\t')
+                continue
+            else:
+                print(i * j, sep='', end='\t')
+        print('')
+
+
+if __name__ == '__main__':
+    multiplication_creator()
